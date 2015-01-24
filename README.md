@@ -14,8 +14,6 @@ Role Variables
 
 - vagrant_ck_march: march to use, ie. haswell, core2, etc ... In case you want the appropriate ``virtualbox-ck-host-module-``.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
 Dependencies
 ------------
 
@@ -24,18 +22,27 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Basic vagrant setup:
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+      - jpic.vagrant
+
+Or with precompiled modules for your kernel:
+
+    - hosts: servers
+      roles:
+      - { role: jpic.vagrant, march: core2 }
+
+Recommended for arch linux:
+
+    - hosts: servers
+      roles:
+      - jpic.march
+      - jpic.ck
+      - jpic.vagrant
 
 License
 -------
 
 BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
