@@ -1,0 +1,27 @@
+---
+
+- shell: pacman -Q | grep linux-ck
+  register: vagrant_linux_ck_installed
+  ignore_errors: yes
+  changed_when: false
+
+- pacman: name=vagrant
+  sudo: yes
+
+- pacman: name=virtualbox-host-modules
+  sudo: yes
+  when: vagrant_linux_ck_installed.rc != 0
+
+- pacman: name=virtualbox-ck-host-modules-{{ march }}
+  sudo: yes
+  when: march and vagrant_linux_ck_installed.rc != 0
+
+- shell: vagrant plugin list | grep {{ item }}
+  with_items: vagrant_plugins
+  changed_when: false
+  ignore_errors: yes
+  register: vagrant_plugin_list
+
+- shell: vagrant plugin install {{ item }}
+  with_items: vagrant_plugins
+  when: '"failed" in vagrant_plugin_list'

@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  pre_tasks:
+
+  roles:
+  - role: jpic.archlinux
+    archlinux_mirrors:
+    - http://arch.yourlabs.org/
+    archlinux_repositories:
+    - name: repo-ck
+      url: http://ck.yourlabs.org/$arch
+    archlinux_keys:
+    - 5EE46C4C
+  - jpic.march
+  - jpic.ck
+  - .
