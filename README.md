@@ -40,7 +40,9 @@ Recommended for arch linux:
       roles:
       - jpic.march
       - jpic.ck
-      - jpic.vagrant
+      - jpic.squid
+      - role: jpic.vagrant
+        vagrant_http_proxy: http://10.0.2.2:3128
 
 License
 -------
