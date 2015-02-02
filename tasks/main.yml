@@ -11,6 +11,7 @@
 - file: path=~/.vagrant.d state=directory
 - template: src=Vagrantfile dest=~/.vagrant.d/Vagrantfile
 - service: name=polipo state=started enabled=yes
+  sudo: yes
 
 - pacman: name=virtualbox-host-modules
   sudo: yes
