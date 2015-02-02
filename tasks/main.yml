@@ -5,7 +5,7 @@
   ignore_errors: yes
   changed_when: false
 
-- pacman: name=vagrant,polipo
+- pacman: name=vagrant,polkit,polipo
   sudo: yes
 
 - file: path=~/.vagrant.d state=directory
