@@ -1,13 +1,11 @@
 ---
 
 - hosts: all
-  pre_tasks:
-
   roles:
-  - role: jpic.archlinux
-    archlinux_mirrors:
+  - role: jpic.pacman
+    pacman_mirrors:
     - http://arch.yourlabs.org/
-    archlinux_repositories:
+    pacman_repositories:
     - name: repo-ck
       url: http://ck.yourlabs.org/$arch
     archlinux_keys:
