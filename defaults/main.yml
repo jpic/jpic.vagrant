@@ -3,3 +3,4 @@
 vagrant_plugins:
 - vagrant-hostsupdater
 - vagrant-cachier
+- vagrant-proxyconf

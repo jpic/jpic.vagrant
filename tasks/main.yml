@@ -5,8 +5,12 @@
   ignore_errors: yes
   changed_when: false
 
-- pacman: name=vagrant
+- pacman: name=vagrant,polipo
   sudo: yes
+
+- file: path=~/.vagrant.d state=directory
+- template: src=Vagrantfile dest=~/.vagrant.d/Vagrantfile
+- service: name=polipo state=started enabled=yes
 
 - pacman: name=virtualbox-host-modules
   sudo: yes
