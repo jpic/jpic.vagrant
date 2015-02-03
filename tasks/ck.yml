@@ -1,3 +1,0 @@
----
-
-- pacman: name=virtualbox-ck-host-modules-{{ vagrant_march }}
