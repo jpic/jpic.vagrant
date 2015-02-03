@@ -6,4 +6,5 @@ Vagrant.configure("2") do |config|
     config.proxy.no_proxy = "localhost,127.0.0.1"
   end
   {% endif %}
+  config.ssh.insert_key = {{ vagrant_config_ssh_insert_key }}
 end

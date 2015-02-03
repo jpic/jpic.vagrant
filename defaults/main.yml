@@ -6,3 +6,5 @@ vagrant_plugins:
 - vagrant-proxyconf
 
 vagrant_http_proxy: false
+
+vagrant_config_ssh_insert_key: 'false'
